@@ -20,12 +20,30 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">
+            <span>Sale</span>
+            <span>Sale</span>
+          </NavLink>
+          <NavLink href="/new">
+            <span>New&nbsp;Releases</span>
+            <span>New&nbsp;Releases</span>
+          </NavLink>
+          <NavLink href="/men">
+            <span>Men</span>
+            <span>Men</span>
+          </NavLink>
+          <NavLink href="/women">
+            <span>Women</span>
+            <span>Women</span>
+          </NavLink>
+          <NavLink href="/kids">
+            <span>Kids</span>
+            <span>Kids</span>
+          </NavLink>
+          <NavLink href="/collections">
+            <span>Collections</span>
+            <span>Collections</span>
+          </NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -115,14 +133,43 @@ const Filler = styled.div`
 `;
 
 const NavLink = styled.a`
-  font-size: 1.125rem;
+  --font-size: 1.125rem;
+
+  font-size: var(--font-size);
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
+  position: relative;
+  overflow: hidden;
 
   &:first-of-type {
     color: var(--color-secondary);
+  }
+
+  span {
+    transition: transform 250ms ease-in, opacity 250ms;
+    display: block;
+  }
+
+  span:nth-of-type(2) {
+    position: absolute;
+    top: 1.125rem;
+    opacity: 0;
+  }
+
+  :hover {
+    span {
+      transition: transform 250ms, opacity 200ms;
+    }
+    span:nth-of-type(1) {
+      transform: translateY(calc(-1 * var(--font-size)));
+      opacity: 0;
+    }
+    span:nth-of-type(2) {
+      transform: translateY(calc(-1 * var(--font-size)));
+      opacity: 1;
+    }
   }
 `;
 
