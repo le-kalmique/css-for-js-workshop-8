@@ -156,6 +156,7 @@ const NavLink = styled.a`
     position: absolute;
     top: 1.125rem;
     opacity: 0;
+    font-weight: 600;
   }
 
   :hover {
